@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{{ form.media }}
+{% endblock %}
+
+{% block content %}
+<h1>Widgets example</h1>
+
+{% if initial %}
+<h2>Initial data</h2>
+<table>
+	{% for k,v in initial.items %}
+	<tr>
+		<th>{{ k }}</th>
+		<td>"{{ v }}"</td>
+	</tr>
+	{% endfor %}
+</table>
+
+<h2>Form</h2>
+{% endif %}
+
+<form action="." method="POST">
+	<table class="form">
+		{{ form.as_table }}
+		<tr>
+			<th></th>
+			<td><input type="submit" value="Submit" /></td>
+		</tr>
+	</table>
+</form>
+
+{% endblock %}
+
+{# vim:set ft=htmldjango ts=4 sw=4 tw=0 noet: #}
