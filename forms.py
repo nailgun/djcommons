@@ -3,7 +3,6 @@ from django.utils import simplejson
 from django.forms import util
 from django import forms
 import settings
-import js
 
 def render_js_call(proc, *args):
 	params = [simplejson.dumps(a) for a in args]
