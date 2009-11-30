@@ -12,10 +12,6 @@ class DeliverySelect(djforms.AjaxSelect):
 		html += ' Delivery cost: <span></span>'
 		return html
 
-	def render(self, name, value, attrs=None):
-		return (self.render_html(name, value, attrs) +
-				self.render_js(attrs['id'], reverse(self.callback), value))
-
 class DeliverySelect2(djforms.ChainedSelect):
 	class Media:
 		js = ('js/DeliverySelect2.js', )
@@ -24,11 +20,6 @@ class DeliverySelect2(djforms.ChainedSelect):
 		html = super(DeliverySelect2, self).render_html(name, value, attrs)
 		html += ' Delivery cost: <span></span>'
 		return html
-	
-	def render(self, name, value, attrs=None):
-		return (self.render_html(name, value, attrs) +
-				self.render_js(attrs['id'], reverse(self.callback),
-					value, self.chain_field))
 
 class WidgetForm(forms.Form):
 	keypad = forms.CharField(widget=djforms.KeypadWidget('0123456789'))
